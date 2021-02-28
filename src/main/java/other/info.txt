@@ -1,0 +1,25 @@
+
+1) Connect to MQSQL DB:  https://spring.io/guides/gs/accessing-data-mysql/
+
+2) Video for this project: 
+https://www.youtube.com/watch?v=np3AcrjiR8A&list=PLA7e3zmT6XQVurih2daho3QdKbVN9Dutx
+
+create database ecom; -- Creates the new database
+
+use ecom;
+
+create user 'username'@'%' identified by 'password'; -- Creates the user
+
+grant all on ecom.* to 'username'@'%'; -- Gives all privileges to the new user on the newly created database
+
+create table tbl_expenses(
+id BIGINT(20) PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+amount decimal(19,2) not null,
+created_at BIGINT(20) not null,
+description VARCHAR(255) not null,
+note VARCHAR(255)
+);
+
+
+insert into tbl_expenses(amount,created_at,description,note) values (7000, unix_timestamp(), "Monitor","HP 24 INCH");
+insert into tbl_expenses(amount,created_at,description,note) values (3000, unix_timestamp(), "Mouse","LG Mouse");
